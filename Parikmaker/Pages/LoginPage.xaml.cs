@@ -20,14 +20,22 @@ namespace Parikmaker
     /// </summary>
     public partial class LoginPage : Page
     {
+        string login = "Admin";
+        string password = "Admin123";
         public LoginPage()
         {
             InitializeComponent();
         }
 
-        private void btnNext_Click(object sender, RoutedEventArgs e)
+        private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            if (tbxLogin.Text == login && pbxPassword.Password == password)
+            {
+                MessageBox.Show("Все правильно");
+                NavigationService.Navigate(new AdminPage());
+            }
+            else
+                MessageBox.Show("Логин или пароль не верны");
         }
     }
 }
